@@ -11,7 +11,4 @@ driver.get("https://www.amazon.com.br")
 time.sleep(5)
 
 
-# oiiii
-# vamos la 
-# OK OK OK OK 
-# Melissa , Demetrios , Marcia 
+# Modificação
