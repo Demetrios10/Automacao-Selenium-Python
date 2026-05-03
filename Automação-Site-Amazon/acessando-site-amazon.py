@@ -10,5 +10,3 @@ driver = webdriver.Chrome()
 driver.get("https://www.amazon.com.br")
 time.sleep(5)
 
-
-# Modificação
