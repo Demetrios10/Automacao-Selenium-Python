@@ -20,9 +20,4 @@ botao_mais_vendidos = driver.find_element(By.XPATH,"/html/body/div[3]/div[2]/div
 botao_mais_vendidos.click()
 time.sleep(3)
 
-# clicando no botão X para fechar
-botao_x = driver.find_element(By.ID,"hmenu-close-icon")
-botao_x.click()
-time.sleep(3)
-
 
