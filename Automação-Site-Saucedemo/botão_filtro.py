@@ -25,6 +25,11 @@ botao_login = driver.find_element(By.ID,"login-button")
 botao_login.click()
 time.sleep(5)
 
+# clicando no botão filtro
+botao_filtro = driver.find_element(By.XPATH,"//select[@data-test='product-sort-container']")
+botao_filtro.click()
+time.sleep(5)
+
 
 
 
