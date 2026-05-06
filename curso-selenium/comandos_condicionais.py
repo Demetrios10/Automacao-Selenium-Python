@@ -27,6 +27,7 @@ else:
     print("O checkbox não está selecionado.")
     
 # click() é o comando para clicar em um elemento
+time.sleep(2)
 checkbox.click()
 if checkbox.is_selected():
-    print("O checkbox está selecionado.")
+ print("O checkbox está selecionado.")
