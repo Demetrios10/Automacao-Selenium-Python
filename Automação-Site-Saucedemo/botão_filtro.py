@@ -8,7 +8,8 @@ import time
 # Inicializa o driver (ex: Chrome)
 driver = webdriver.Chrome()
 driver.get("https://www.saucedemo.com/")
-time.sleep(3)
+time.sleep(5)
+driver.maximize_window()
 
 # preenchendo usuario
 usuario = driver.find_element(By.ID,"user-name")
