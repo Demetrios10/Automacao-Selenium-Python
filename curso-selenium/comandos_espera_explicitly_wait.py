@@ -17,8 +17,21 @@ wait = WebDriverWait(browser, 30)
 # time.sleep(15)
 
 # text to be present in element
-browser.find_element(By.ID,"populate-text").click()
-wait.until(EC.text_to_be_present_in_element((By.XPATH,"//*[text()='Selenium WebDriver']") ,"Selenium Webdriver"))
-target_text = browser.find_element(By.XPATH,"//*[text()='Selenium Webdriver']").text
-assert target_text == "Selenium Webdriver"
-time.sleep(2)
+# browser.find_element(By.ID,"populate-text").click()
+# wait.until(EC.text_to_be_present_in_element((By.XPATH,"//*[text()='Selenium WebDriver']") ,"Selenium Webdriver"))
+# target_text = browser.find_element(By.XPATH,"//*[text()='Selenium Webdriver']").text
+#assert target_text == "Selenium Webdriver"
+# time.sleep(5)
+
+# element to be clickable
+
+
+
+# element to be selected
+browser.find_element(By.ID,"checkbox").click()
+time.sleep(5)
+wait.until(EC.element_to_be_selected((browser.find_element(By.ID,"ch"))))
+time.sleep(5)
+assert browser.find_element(By.ID,"ch").is_selected() == True
+print("Checkbox is selected")
+
