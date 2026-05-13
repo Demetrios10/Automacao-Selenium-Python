@@ -24,7 +24,11 @@ wait = WebDriverWait(browser, 30)
 # time.sleep(5)
 
 # element to be clickable
-
+browser.find_element(By.ID,"enable-button").click()
+wait.until(EC.element_to_be_clickable((By.ID,"disable")))
+time.sleep(5)
+assert browser.find_element(By.ID,"disable").is_enabled() == True
+print("Button is enabled")
 
 
 # element to be selected
