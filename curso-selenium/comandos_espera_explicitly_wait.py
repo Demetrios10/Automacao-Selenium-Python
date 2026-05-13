@@ -1,0 +1,24 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC
+
+
+browser = webdriver.Chrome()
+browser.maximize_window()
+browser.get("https://www.chercher.tech/practice/explicit-wait-sample-selenium-webdriver")
+wait = WebDriverWait(browser, 30)
+
+# alert is present
+# browser.find_element(By.ID,"alert").click()
+# wait.until(EC.alert_is_present())
+# time.sleep(15)
+
+# text to be present in element
+browser.find_element(By.ID,"populate-text").click()
+wait.until(EC.text_to_be_present_in_element((By.XPATH,"//*[text()='Selenium WebDriver']") ,"Selenium Webdriver"))
+target_text = browser.find_element(By.XPATH,"//*[text()='Selenium Webdriver']").text
+assert target_text == "Selenium Webdriver"
+time.sleep(2)

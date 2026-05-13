@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 browser = webdriver.Chrome()
-# browser.implicitly_wait(12)  # espera até 12 segundos para encontrar o elemento
+browser.implicitly_wait(12)  # espera até 12 segundos para encontrar o elemento
 
 browser.maximize_window()
 browser.get("https://www.chercher.tech/practice/explicit-wait-sample-selenium-webdriver")
