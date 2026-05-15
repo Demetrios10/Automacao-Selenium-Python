@@ -1,78 +1,103 @@
-# 🚀 Selenium WebDriver — Guia Inicial
+# Automação Selenium com Python
 
-## 📌 Objetivo
+Repositório de estudos em automação de testes web usando Python, Selenium WebDriver e boas práticas de QA.
 
-Introdução prática a testes automatizados com Selenium.
+## Visão geral
 
----
+Este projeto tem como objetivo criar uma base simples e evolutiva para praticar automação E2E. A proposta é organizar testes, páginas e utilitários de forma clara, facilitando manutenção, leitura e evolução para cenários mais reais.
 
-## 🛠️ Stack
+## Status do projeto
 
-* Python
-* Selenium WebDriver
-* VS Code
-* Git/GitHub
+Em evolução.
 
----
+| Item | Situação |
+| --- | --- |
+| Estrutura inicial | Em preparação |
+| Selenium WebDriver | Em estudo |
+| Pytest | Próximo passo |
+| Page Object Model | Próximo passo |
+| GitHub Actions | Futuro |
 
-## ⚙️ Pré-requisitos
+## Tecnologias
 
-* Python 3.x
-* Navegador (Chrome/Firefox)
-* WebDriver (ex: ChromeDriver)
+- Python 3
+- Selenium WebDriver
+- Pytest
+- VS Code
+- Git e GitHub
 
----
+## Estrutura sugerida
 
-## 📦 Instalação
-
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-pip install selenium
+```text
+Automacao-Selenium-Python/
+|-- tests/
+|-- pages/
+|-- utils/
+|-- requirements.txt
+`-- README.md
 ```
 
----
+## Como preparar o ambiente
 
-## ▶️ Exemplo
+Clone o repositório:
+
+```bash
+git clone https://github.com/Demetrios10/Automacao-Selenium-Python.git
+cd Automacao-Selenium-Python
+```
+
+Crie um ambiente virtual:
+
+```bash
+python -m venv .venv
+```
+
+Ative o ambiente no Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Ative o ambiente no Linux ou macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Instale as dependências:
+
+```bash
+pip install selenium pytest
+```
+
+## Exemplo inicial
 
 ```python
 from selenium import webdriver
 
 driver = webdriver.Chrome()
 driver.get("https://www.google.com")
+print(driver.title)
 driver.quit()
 ```
 
----
+## Boas práticas
 
-## 📁 Estrutura
+- Usar waits explícitos no lugar de esperas fixas
+- Priorizar seletores estáveis e fáceis de manter
+- Separar testes, páginas e funções auxiliares
+- Nomear testes de forma clara e objetiva
+- Manter dados de teste separados da lógica dos testes
 
-```
-/tests
-/pages
-/utils
-README.md
-```
+## Roadmap
 
----
+- Criar os primeiros testes dentro de `tests/`
+- Adicionar Page Objects dentro de `pages/`
+- Criar arquivo `requirements.txt`
+- Configurar execução com `pytest`
+- Adicionar relatório de execução
+- Criar workflow de CI com GitHub Actions
 
-## 💡 Boas práticas
+## Autor
 
-* Use Page Object Model (POM)
-* Prefira seletores estáveis
-* Use waits explícitos
-* Separe dados de teste
-
----
-
-## 📚 Próximos passos
-
-* Pytest ou unittest
-* CI/CD
-* Testes mais robustos
-
----
-
-## ✨ Autor
 Demétrios Alves Da Silva
-
