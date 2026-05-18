@@ -13,4 +13,4 @@ driver.find_element(By.ID,"password").send_keys("demo_sauce")
 driver.find_element(By.ID,"login-button").click()
 
 assert driver.find_element(By.XPATH, "//form/div[3]/h3").is_displayed()
-
+driver.save_screenshot("evidencia.png")

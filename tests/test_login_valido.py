@@ -14,4 +14,4 @@ driver.find_element(By.ID,"login-button").click()
 time.sleep(10)
 
 assert driver.find_element(By.XPATH, "/html/body/div/div/div/div[1]/div[2]/span").is_displayed()
-
+driver.save_screenshot("evidencia.png")
