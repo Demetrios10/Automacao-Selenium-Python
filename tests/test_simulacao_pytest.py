@@ -1,7 +1,10 @@
-import pytest
+try:
+    import pytest  # type: ignore[import]
+except ImportError:
+    pytest = None
 
 
-@pytest.mark.simulacao
+@pytest.mark.simulacao if pytest else (lambda x: x)
 class TestSimulacao():
   def test_simulacao_1(self):
     assert 1 == 1
