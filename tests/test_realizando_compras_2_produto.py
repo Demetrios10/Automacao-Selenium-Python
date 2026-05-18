@@ -47,3 +47,8 @@ time.sleep(5)
 
 # verificando se o texto esta na tela
 assert driver.find_element(By.XPATH, "/html/body/div/div/div/div[1]/div[2]/span").is_displayed()
+
+# salva a evidência
+driver.save_screenshot("evidencias/compra_de_2_produtos.png")
+
+driver.quit()
