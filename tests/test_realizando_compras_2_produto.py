@@ -25,3 +25,25 @@ driver.find_element(By.ID,"continue-shopping").click()
 # adicionando mais um produto ao carrinho
 driver.find_element(By.ID,"add-to-cart-sauce-labs-bike-light").click()
 driver.find_element(By.XPATH,"//*[@class='shopping_cart_link']").click()
+time.sleep(5)
+
+
+# clicando no botão para finalizar a compra
+driver.find_element(By.ID,"checkout").click()
+time.sleep(5)
+
+# preenchendo os campos para finalizar a compra
+driver.find_element(By.ID,"first-name").send_keys("Douglas")
+driver.find_element(By.ID,"last-name").send_keys("Gomes")
+driver.find_element(By.ID,"postal-code").send_keys("04653432")
+time.sleep(5)
+
+# clicando no botão Continue
+driver.find_element(By.ID,"continue").click()
+
+# clicando no botão Finish
+driver.find_element(By.ID,"finish").click()
+time.sleep(5)
+
+# verificando se o texto esta na tela
+assert driver.find_element(By.XPATH, "/html/body/div/div/div/div[1]/div[2]/span").is_displayed()
