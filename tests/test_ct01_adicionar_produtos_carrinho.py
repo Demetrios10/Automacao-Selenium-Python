@@ -6,7 +6,7 @@ import conftest
 
 @pytest.mark.usefixtures("setup_teardown")
 class TestCT01:
-    def test_adicionar_produtos_carrinho(self):
+    def test_ct01_adicionar_produtos_carrinho(self):
      driver = conftest.driver
      driver.find_element(By.ID, "user-name").send_keys("standard_user")
      driver.find_element(By.ID, "password").send_keys("secret_sauce")
