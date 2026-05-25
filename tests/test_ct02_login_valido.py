@@ -4,6 +4,7 @@ import conftest
 import pytest
 
 @pytest.mark.usefixtures("setup_teardown")
+@pytest.mark.login
 class TestCT02:
     def test_ct02_login_valido(self):
         driver = conftest.driver
