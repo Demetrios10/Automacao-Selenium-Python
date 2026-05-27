@@ -11,3 +11,6 @@ class HomePage(BasePage):
 
     def verificar_login_com_sucesso(self):
         self.verificar_se_elemento_existe(self.titulo_pagina)
+
+    def verificar_login_sem_sucesso(self):
+        self.verificar_se_elemento_existe(self.titulo_pagina)
