@@ -13,7 +13,7 @@ driver.find_element(By.ID,"user-name").send_keys("standard_user")
 driver.find_element(By.ID,"password").send_keys("secret_sauce")
 driver.find_element(By.ID,"login-button").click()
 
-# adiciona a mochila
+# adicionar a mochila ao carrinho
 driver.find_element(By.XPATH,"/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[1]/a/div").click()
 driver.find_element(By.XPATH,"//button[@id='add-to-cart']").click()
 
