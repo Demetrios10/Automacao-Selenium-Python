@@ -1,6 +1,5 @@
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
-import conftest
 import pytest
 
 @pytest.mark.usefixtures("setup_teardown")
