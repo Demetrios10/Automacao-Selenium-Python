@@ -8,12 +8,13 @@ driver.maximize_window()
 driver.get("https://www.saucedemo.com/")
 time.sleep(5)
 
+# faz login
 driver.find_element(By.ID,"user-name").send_keys("standard_user")
 driver.find_element(By.ID,"password").send_keys("secret_sauce")
 driver.find_element(By.ID,"login-button").click()
 
+# adiciona a mochila
 driver.find_element(By.XPATH,"/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[1]/a/div").click()
-
 driver.find_element(By.XPATH,"//button[@id='add-to-cart']").click()
 
 # cicando no carrinho para verificar se o produto esta selecionado
@@ -42,5 +43,4 @@ assert driver.find_element(By.XPATH, "/html/body/div/div/div/div[1]/div[2]/span"
 
 # salva a evidência
 driver.save_screenshot("evidencias/compra_de_1_produto.png")
-
 driver.quit()
