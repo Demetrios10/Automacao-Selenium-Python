@@ -1,36 +1,43 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 import time
 
-driver = webdriver.Chrome()
-driver.implicitly_wait(5)
-driver.maximize_window()
-driver.get("https://www.saucedemo.com/")
-time.sleep(5)
-
-driver.find_element(By.ID,"user-name").send_keys("standard_user")
-driver.find_element(By.ID,"password").send_keys("secret_sauce")
-driver.find_element(By.ID,"login-button").click()
-
-driver.find_element(By.XPATH,"/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[1]/a/div").click()
-
-driver.find_element(By.XPATH,"//button[@id='add-to-cart']").click()
-
-# cicando no carrinho para verificar se o produto esta selecionado
-driver.find_element(By.XPATH,"//*[@class='shopping_cart_link']").click()
-
-# acionando botão para voltar para tela de produtos
-driver.find_element(By.ID,"continue-shopping").click()
-
-# adicionando mais um produto ao carrinho
-driver.find_element(By.ID,"add-to-cart-sauce-labs-bike-light").click()
-driver.find_element(By.XPATH,"//*[@class='shopping_cart_link']").click()
-time.sleep(5)
+from pages.home_page import HomePage
+import pytest
+from pages.login_page import LoginPage
 
 
-# clicando no botão para finalizar a compra
-driver.find_element(By.ID,"checkout").click()
-time.sleep(5)
+@pytest.mark.usefixtures("setup_teardown")
+@pytest.mark.login
+class TestCT04:
+    def test_ct04_realizando_compras_1_produto(self):
+
+        # instancia os objetos a serem usados no teste
+        login_page = LoginPage()
+        home_page  = HomePage()
+
+        # faz o login
+        login_page.fazer_login("standard_user","secret_sauce")
+
+        # verifica se o login foi realizado
+        home_page.verificar_login_com_sucesso()
+
+        # adicionando a mochila ao carrinho
+        home_page.adicionar_produto_ao_carrinho("Sauce Labs Backpack")
+
+        # clicar no botão para retornar para a página de produtos
+        home_page.clicar_no_botao_voltar_para_produtos()
+        time.sleep(15)
+
+        # adicionando segundo produto ao carrinho
+        home_page.adicionar_produto_ao_carrinho("Sauce Labs Backpack")
+
+        # clicando no botão para finalizar a compra
+        home_page.clicar_no_botao_finalizar_compra()
+        time.sleep(5)
+
+
+
+
+
 
 # preenchendo os campos para finalizar a compra
 driver.find_element(By.ID,"first-name").send_keys("Douglas")

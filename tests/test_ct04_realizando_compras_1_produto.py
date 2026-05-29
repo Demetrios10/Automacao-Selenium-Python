@@ -1,5 +1,4 @@
 import time
-
 from pages.home_page import HomePage
 import pytest
 from pages.login_page import LoginPage
@@ -21,10 +20,7 @@ class TestCT04:
         home_page.verificar_login_com_sucesso()
 
         # adicionando a mochila ao carrinho
-        home_page.adicionar_produto_ao_carrinho("Sauce Labs Backpack")
+        home_page.adicionar_produto_ao_carrinho("add-to-cart-sauce-labs-backpack").click()
 
-        # clicar no botão para retornar para a página de produtos
-        home_page.clicar_no_botao_voltar_para_produtos()
-        time.sleep(15)
 
 

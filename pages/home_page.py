@@ -11,9 +11,7 @@ class HomePage(BasePage):
         self.driver = conftest.driver
         self.titulo_pagina = (By.XPATH,"//span[contains(@class,'title') and @data-test='title' and normalize-space()='Products']")
         self.item_inventario = (By.XPATH,"//div[@data-test='inventory-item-name' and normalize-space(.)='Sauce Labs Backpack']")
-        self.carrinho = (By.ID,"add-to-cart")
-        self.botao_voltar_produtos = (By.ID,"back-to-products")
-
+        self.adiciona_produto_ao_carrinho = (By.ID,"add-to-cart-sauce-labs-backpack")
 
     def verificar_login_com_sucesso(self):
         self.verificar_se_elemento_existe(self.titulo_pagina)
@@ -24,9 +22,7 @@ class HomePage(BasePage):
     def adicionar_produto_ao_carrinho(self, nome_item):
         item =self.item_inventario[0], self.item_inventario[1].format(nome_item)
         self.clicar(item)
-        self.clicar(self.carrinho)
+        self.clicar(self.adiciona_produto_ao_carrinho)
         time.sleep(10)
 
-    def clicar_no_botao_voltar_para_produtos(self):
-        self.clicar(self.botao_voltar_produtos)
 
