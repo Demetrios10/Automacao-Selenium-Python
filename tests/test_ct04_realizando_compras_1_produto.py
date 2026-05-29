@@ -25,6 +25,6 @@ class TestCT04:
 
         # clicar no botão para retornar para a página de produtos
         home_page.clicar_no_botao_voltar_para_produtos()
-        time.sleep(10)
+        time.sleep(15)
 
 
