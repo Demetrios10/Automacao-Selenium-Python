@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 from pages.home_page import HomePage
 import pytest
 from pages.login_page import LoginPage
@@ -16,7 +15,10 @@ class TestCT04:
         # faz o login
         login_page.fazer_login("standard_user","secret_sauce")
 
-        #verifica se o login foi realizado
+        # verifica se o login foi realizado
         home_page.verificar_login_com_sucesso()
+
+        # adicionando a mochila ao carrinho
+        home_page.adicionar_produto_ao_carrinho("Sauce Labs Backpack")
 
 

@@ -1,3 +1,5 @@
+import time
+
 from pages.base_page import BasePage
 import conftest
 from selenium.webdriver.common.by import By
@@ -8,9 +10,19 @@ class HomePage(BasePage):
     def __init__(self):
         self.driver = conftest.driver
         self.titulo_pagina = (By.XPATH,"//span[contains(@class,'title') and @data-test='title' and normalize-space()='Products']")
+        self.item_inventario = (By.XPATH,"//div[@data-test='inventory-item-name' and normalize-space(.)='Sauce Labs Backpack']")
+        self.carrinho = (By.ID,"add-to-cart")
+
 
     def verificar_login_com_sucesso(self):
         self.verificar_se_elemento_existe(self.titulo_pagina)
 
     def verificar_login_sem_sucesso(self):
         self.verificar_se_elemento_existe(self.titulo_pagina)
+
+    def adicionar_produto_ao_carrinho(self, nome_item):
+        item =self.item_inventario[0], self.item_inventario[1].format(nome_item)
+        self.clicar(item)
+        self.clicar(self.carrinho)
+        time.sleep(10)
+
