@@ -12,6 +12,7 @@ class HomePage(BasePage):
         self.titulo_pagina = (By.XPATH,"//span[contains(@class,'title') and @data-test='title' and normalize-space()='Products']")
         self.item_inventario = (By.XPATH,"//div[@data-test='inventory-item-name' and normalize-space(.)='Sauce Labs Backpack']")
         self.carrinho = (By.ID,"add-to-cart")
+        self.botao_voltar_produtos = (By.ID,"back-to-products")
 
 
     def verificar_login_com_sucesso(self):
@@ -25,4 +26,7 @@ class HomePage(BasePage):
         self.clicar(item)
         self.clicar(self.carrinho)
         time.sleep(10)
+
+    def clicar_no_botao_voltar_para_produtos(self):
+        self.clicar(self.botao_voltar_produtos)
 
