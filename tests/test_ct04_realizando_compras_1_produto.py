@@ -20,7 +20,14 @@ class TestCT04:
         home_page.verificar_login_com_sucesso()
 
         # adicionando a mochila ao carrinho
-        home_page.adicionar_produto_ao_carrinho("add-to-cart-sauce-labs-backpack").click()
+        home_page.adicionar_produto_ao_carrinho("add-to-cart")
+
+        # seleciona carrinho
+        home_page.seleciona_carrinho()
+
+        # seleciona para prencher os dados de compra
+        home_page.seleciona_checkout()
+        time.sleep(10)
 
 
 
