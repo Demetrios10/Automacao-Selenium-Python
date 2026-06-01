@@ -25,9 +25,19 @@ class TestCT04:
         # seleciona carrinho
         home_page.seleciona_carrinho()
 
-        # seleciona para prencher os dados de compra
+        # seleciona para processar o checkout
         home_page.seleciona_checkout()
-        time.sleep(10)
+
+        # seleciona para preencher os dados de compra
+        home_page.dados_compra()
+
+        # clicar no botão continuar
+        home_page.botao_continuar()
+        time.sleep(3)
+
+        # clicar no botão finalizar
+        home_page.botao_finalizar()
+        time.sleep(3)
 
 
 

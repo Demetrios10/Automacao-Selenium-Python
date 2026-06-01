@@ -14,6 +14,9 @@ class HomePage(BasePage):
         self.adiciona_produto_ao_carrinho = (By.ID,"add-to-cart")
         self.carrinho = (By.XPATH,"//a[@data-test='shopping-cart-link']")
         self.checkout = (By.ID,"checkout")
+        self.dados = (By.ID,"first-name"), (By.ID,"last-name"), (By.ID,"postal-code")
+        self.continuar = (By.ID,"continue")
+        self.finalizar = (By.ID,"finish")
 
     def verificar_login_com_sucesso(self):
         self.verificar_se_elemento_existe(self.titulo_pagina)
@@ -31,5 +34,16 @@ class HomePage(BasePage):
 
     def seleciona_checkout(self):
         self.clicar((By.ID,"checkout"))
+
+    def dados_compra(self):
+        self.escrever(self.dados[0],"Deltas")
+        self.escrever(self.dados[1],"Santos")
+        self.escrever(self.dados[2],"0000")
+
+    def botao_continuar(self):
+        self.clicar(self.continuar)
+
+    def botao_finalizar(self):
+        self.clicar((By.ID,"finish"))
 
 
