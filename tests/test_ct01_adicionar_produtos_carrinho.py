@@ -26,7 +26,6 @@ class TestCT01:
      driver.find_element(By.ID, "add-to-cart-sauce-labs-bike-light").click()
      driver.find_element(By.XPATH, "//*[@class='shopping_cart_link']").click()
 
-
      assert driver.find_element(By.XPATH, "//div[text()='Sauce Labs Backpack']").is_displayed()
      assert driver.find_element(By.XPATH, "//div[text()='Sauce Labs Bike Light']").is_displayed()
 
