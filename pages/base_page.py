@@ -1,4 +1,7 @@
 import conftest
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver import ActionChains
 
 
 class BasePage:
@@ -21,4 +24,26 @@ class BasePage:
         assert self.encontrar_elemento(locator).is_displayed()
 
     def pegar_texto_elemento(self, locator):
+        self.esperar_elemento_visivel(locator)
         return self.encontrar_elemento(locator).text
+
+    def esperar_elemento_visivel(self, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(*locator))
+
+    # verificar se um elemento existe na página
+    def verificar_elemento_existe(self, locator):
+        assert self.encontrar_elemento(locator), f"Elemento não encontrado: {locator} não existe mais é esperado que existe."
+
+    # verificar se um elemento não existe na página
+    def verificar_elemento_nao_existe(self, locator):
+        assert len(self.encontrar_elementos(locator)) == 0, f"Elemento encontrado: {locator} existe mais é esperado que não existe."
+
+    # clicar duas vezes em um elemento
+    def clicar_duas_vezes(self, locator):
+        element = self.esperar_elemento_aparecer(locator)
+        ActionChains(self.driver).double_click(element).perform()
+
+    # clicar com o botão direito em um elemento
+    def clique_botao_direito(self, locator):
+        element = self.esperar_elemento_aparecer(locator)
+        ActionChains(self.driver).context_click(element).perform()
