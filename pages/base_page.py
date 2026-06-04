@@ -1,7 +1,7 @@
 import conftest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains , Keys
 
 
 class BasePage:
@@ -47,3 +47,14 @@ class BasePage:
     def clique_botao_direito(self, locator):
         element = self.esperar_elemento_aparecer(locator)
         ActionChains(self.driver).context_click(element).perform()
+
+    def precionar_tecla(self, locator, key):
+        element = self.encontrar_elemento(locator)
+        if key.lower() == "enter":
+            element.send_keys(Keys.ENTER)
+        elif key.lower() == "tab":
+            element.send_keys(Keys.TAB)
+        elif key.lower() == "esc":
+            element.send_keys(Keys.ESCAPE)
+        else:
+            raise ValueError(f"Tecla não suportada: {key}")
