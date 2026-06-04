@@ -12,9 +12,9 @@ def setup_teardown():
     driver.implicitly_wait(5)
     driver.maximize_window()
     driver.get("https://www.saucedemo.com/")
-    
+
     # run tests
     yield
-    
+
     # teardown
     driver.quit()
