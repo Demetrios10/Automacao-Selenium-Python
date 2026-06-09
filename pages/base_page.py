@@ -1,7 +1,10 @@
 import conftest
+<<<<<<< HEAD
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains , Keys
+=======
+>>>>>>> cf674383b843e8510f47afbc710f47af788091ba
 
 
 class BasePage:
@@ -24,6 +27,7 @@ class BasePage:
         assert self.encontrar_elemento(locator).is_displayed()
 
     def pegar_texto_elemento(self, locator):
+<<<<<<< HEAD
         self.esperar_elemento_visivel(locator)
         return self.encontrar_elemento(locator).text
 
@@ -58,3 +62,6 @@ class BasePage:
             element.send_keys(Keys.ESCAPE)
         else:
             raise ValueError(f"Tecla não suportada: {key}")
+=======
+        return self.encontrar_elemento(locator).text
+>>>>>>> cf674383b843e8510f47afbc710f47af788091ba

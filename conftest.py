@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 Configurações e Fixtures do Pytest
 """
@@ -42,11 +43,23 @@ def driver_com_screenshot(driver, request):
 @pytest.fixture(scope="function")
 def setup_teardown():
     """Fixture compatível com testes legados"""
+=======
+import pytest
+from selenium import webdriver
+
+
+driver: webdriver.remote
+
+
+@pytest.fixture
+def setup_teardown():
+>>>>>>> cf674383b843e8510f47afbc710f47af788091ba
     global driver
     driver = webdriver.Chrome()
     driver.implicitly_wait(5)
     driver.maximize_window()
     driver.get("https://www.saucedemo.com/")
+<<<<<<< HEAD
 
     yield
 
@@ -60,3 +73,11 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
     setattr(item, f"rep_{rep.when}", rep)
+=======
+    
+    # run tests
+    yield
+    
+    # teardown
+    driver.quit()
+>>>>>>> cf674383b843e8510f47afbc710f47af788091ba

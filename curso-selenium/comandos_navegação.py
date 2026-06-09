@@ -18,7 +18,7 @@ time.sleep(5)
 browser.refresh()
 time.sleep(3)
 
-# get() é o comando para acessar um site 
+# get() é o comando para acessar um site
 browser.get("https://nike.com.br")
 
 # back() navega para a página anterior
