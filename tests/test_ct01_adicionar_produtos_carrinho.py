@@ -6,7 +6,7 @@ import conftest
 @pytest.mark.usefixtures("setup_teardown")
 @pytest.mark.carrinho
 class TestCT01:
-    def test_ct01_adicionar_produtos_carrinho(self):
+  def test_ct01_adicionar_produtos_carrinho(self):
      driver = conftest.driver
      driver.find_element(By.ID, "user-name").send_keys("standard_user")
      driver.find_element(By.ID, "password").send_keys("secret_sauce")
@@ -26,10 +26,6 @@ class TestCT01:
      driver.find_element(By.ID, "add-to-cart-sauce-labs-bike-light").click()
      driver.find_element(By.XPATH, "//*[@class='shopping_cart_link']").click()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> cf674383b843e8510f47afbc710f47af788091ba
      assert driver.find_element(By.XPATH, "//div[text()='Sauce Labs Backpack']").is_displayed()
      assert driver.find_element(By.XPATH, "//div[text()='Sauce Labs Bike Light']").is_displayed()
 
