@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import time
 
-=======
->>>>>>> cf674383b843e8510f47afbc710f47af788091ba
 from pages.base_page import BasePage
 import conftest
 from selenium.webdriver.common.by import By
@@ -13,7 +10,6 @@ class HomePage(BasePage):
     def __init__(self):
         self.driver = conftest.driver
         self.titulo_pagina = (By.XPATH,"//span[contains(@class,'title') and @data-test='title' and normalize-space()='Products']")
-<<<<<<< HEAD
         self.item_inventario = (By.XPATH,"//div[@data-test='inventory-item-name' and normalize-space(.)='Sauce Labs Backpack']")
         self.adiciona_produto_ao_carrinho = (By.ID,"add-to-cart")
         self.carrinho = (By.XPATH,"//a[@data-test='shopping-cart-link']")
@@ -24,15 +20,12 @@ class HomePage(BasePage):
         self.dados = (By.ID,"first-name"), (By.ID,"last-name"), (By.ID,"postal-code")
         self.continuar = (By.ID,"continue")
         self.finalizar = (By.ID,"finish")
-=======
->>>>>>> cf674383b843e8510f47afbc710f47af788091ba
 
     def verificar_login_com_sucesso(self):
         self.verificar_se_elemento_existe(self.titulo_pagina)
 
     def verificar_login_sem_sucesso(self):
         self.verificar_se_elemento_existe(self.titulo_pagina)
-<<<<<<< HEAD
 
     def adicionar_produto_ao_carrinho(self, nome_item):
         item =self.item_inventario[0], self.item_inventario[1].format(nome_item)
@@ -57,5 +50,3 @@ class HomePage(BasePage):
         self.clicar((By.ID,"finish"))
 
 
-=======
->>>>>>> cf674383b843e8510f47afbc710f47af788091ba
