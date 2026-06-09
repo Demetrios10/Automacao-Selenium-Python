@@ -1,6 +1,6 @@
 import time
 
-from pages.base_page import BasePage
+from projeto_saucedemo.pages.base_page import BasePage
 import conftest
 from selenium.webdriver.common.by import By
 

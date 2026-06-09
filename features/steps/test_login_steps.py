@@ -13,7 +13,7 @@ import os
 # Adicionar o diretório raiz ao path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
-from pages.login_page import LoginPage
+from projeto_saucedemo.pages.login_page import LoginPage
 
 
 class TestLoginSteps:

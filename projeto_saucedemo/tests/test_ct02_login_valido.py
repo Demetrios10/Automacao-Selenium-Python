@@ -1,5 +1,5 @@
-from pages.home_page import HomePage
-from pages.login_page import LoginPage
+from projeto_saucedemo.pages.home_page import HomePage
+from projeto_saucedemo.pages.login_page import LoginPage
 import conftest
 import pytest
 

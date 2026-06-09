@@ -1,7 +1,7 @@
 import time
-from pages.home_page import HomePage
+from projeto_saucedemo.pages.home_page import HomePage
 import pytest
-from pages.login_page import LoginPage
+from projeto_saucedemo.pages.login_page import LoginPage
 
 
 @pytest.mark.usefixtures("setup_teardown")

@@ -11,7 +11,7 @@ from datetime import datetime
 # Adicionar utils ao path
 sys.path.insert(0, os.path.dirname(__file__))
 
-from utils.driver_factory import DriverFactory, ScreenshotUtils
+from projeto_saucedemo.utils.driver_factory import DriverFactory, ScreenshotUtils
 
 
 @pytest.fixture(scope="function")
