@@ -17,3 +17,4 @@ class TestCT02:
 
         #verifica se o login foi realizado
         home_page.verificar_login_com_sucesso()
+        

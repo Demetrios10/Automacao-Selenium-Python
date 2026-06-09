@@ -1,0 +1,47 @@
+# Ambiente Virtual
+venv/
+env/
+ENV/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Relatórios e Screenshots
+reports/
+!reports/.gitkeep
+screenshots/
+!screenshots/.gitkeep
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# Dependências instaladas
+dist/
+build/
+*.egg-info/
+
+# Arquivo de log
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
