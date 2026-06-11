@@ -1,43 +1,26 @@
-import time
-from projeto_saucedemo.pages.home_page import HomePage
 import pytest
+from projeto_saucedemo.pages.home_page import HomePage
 from projeto_saucedemo.pages.login_page import LoginPage
 
 
-@pytest.mark.usefixtures("setup_teardown")
 @pytest.mark.login
 class TestCT04:
-    def test_ct04_realizando_compras_1_produto(self):
+    def test_ct04_realizando_compras_1_produto(self, driver):
 
-        # instancia os objetos a serem usados no teste
-        login_page = LoginPage()
-        home_page  = HomePage()
+        login_page = LoginPage(driver)
+        home_page = HomePage(driver)
 
-        # faz o login
-        login_page.fazer_login("standard_user","secret_sauce")
+        login_page.abrir_pagina()
+        login_page.fazer_login("standard_user", "secret_sauce")
 
-        # verifica se o login foi realizado
         home_page.verificar_login_com_sucesso()
 
-        # adicionando a mochila ao carrinho
-        home_page.adicionar_produto_ao_carrinho("add-to-cart")
-
-        # seleciona carrinho
+        home_page.adicionar_produto_ao_carrinho("Sauce Labs Backpack")
         home_page.seleciona_carrinho()
-
-        # seleciona para processar o checkout
         home_page.seleciona_checkout()
-
-        # seleciona para preencher os dados de compra
         home_page.dados_compra()
-
-        # clicar no botão continuar
         home_page.botao_continuar()
-        time.sleep(3)
-
-        # clicar no botão finalizar
         home_page.botao_finalizar()
-        time.sleep(3)
 
 
 
