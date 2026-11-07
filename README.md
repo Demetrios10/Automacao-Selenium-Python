@@ -57,6 +57,10 @@ O fluxo está implementado em `scripts/pesquisa_youtube.py`. É um script demons
 - Garantir o encerramento do navegador em caso de erro
 - Evoluir para testes com pytest
 
+## Contexto profissional
+
+Este projeto registra meus estudos em automação web como Analista de Testes (QA). Complementa minha experiência em testes manuais, APIs e validação de regras de negócio nos setores de pagamentos, serviços financeiros e seguros.
+
 ## Autor
 
 [Demétrios Alves Da Silva](https://github.com/Demetrios10)
