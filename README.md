@@ -1,6 +1,10 @@
 # Automação web com Selenium e Python
 
-Exemplo de estudo que abre o YouTube no Chrome, pesquisa por `barcelona` e encerra o navegador.
+**Python · Selenium WebDriver · Automação web**
+
+Projeto de estudo que demonstra um fluxo de pesquisa no YouTube: abrir o Chrome, acessar o site, buscar por `barcelona` e encerrar o navegador.
+
+[Ver o script](scripts/pesquisa_youtube.py) · [Como executar](#preparação) · [Perfil do autor](https://github.com/Demetrios10)
 
 ## Estrutura
 
@@ -44,7 +48,7 @@ O Selenium pode precisar baixar o driver compatível com o Chrome na primeira ex
 
 ## Funcionamento e limites
 
-O script original foi preservado e movido para `scripts/pesquisa_youtube.py` (antes `test_pesquisa_youtube.py`). É um script demonstrativo, sem asserções automatizadas. Ele utiliza seletores XPath e pausas fixas; mudanças no YouTube ou telas de consentimento podem impedir a execução.
+O fluxo está implementado em `scripts/pesquisa_youtube.py`. É um script demonstrativo, sem asserções automatizadas. Ele utiliza seletores XPath e pausas fixas; mudanças no YouTube ou telas de consentimento podem impedir a execução.
 
 ## Próximas melhorias
 
