@@ -1,76 +1,67 @@
-# Automação web com Selenium e Python
+# Automação de cadastro — Selenium + POM
 
-**Python · Selenium WebDriver · Page Object Model · QA**
+Projeto de estudos em QA para https://demo.automationtesting.in/Register.html.
 
-Fluxo de pesquisa no YouTube com validação da URL e de vídeos visíveis, esperas explícitas e encerramento do navegador mesmo em caso de falha.
+## Instalação
 
-## Preparação
-
-Requisitos: Python 3, Google Chrome e internet. O Selenium pode baixar o driver na primeira execução.
+Requer Python 3, Chrome e acesso à internet.
 
 ```bash
-git clone https://github.com/Demetrios10/Automacao-Selenium-Python.git
-cd Automacao-Selenium-Python
 python -m venv .venv
-```
-
-Ative o ambiente no PowerShell: `.\.venv\Scripts\Activate.ps1`. No Linux/macOS: `source .venv/bin/activate`.
-
-```bash
 python -m pip install -r requirements.txt
-python scripts/pesquisa_youtube.py
-python scripts/pesquisa_youtube.py --termo "testes de software" --headless --timeout 30
 ```
 
-## O que é validado
+Ative o ambiente antes de instalar: no PowerShell, `.\.venv\Scripts\Activate.ps1`; em Linux/macOS, `source .venv/bin/activate`.
 
-1. O campo de pesquisa está disponível para interação.
-2. A URL de resultados contém exatamente o termo enviado.
-3. Pelo menos um título de vídeo está visível.
+## Executar demonstração com navegador
 
-A execução imprime até cinco títulos. Se a validação expirar, o processo termina com erro e encerra o navegador. Não é verificada a relevância semântica dos vídeos.
+```bash
+python -m scripts.cadastro
+```
 
-## Testes locais sem navegador
+Preenche dados fictícios e valida a leitura dos campos, sem enviar cadastro. Use `--headless` para ocultar a janela.
+
+## Testes
+
+Suíte padrão (testes unitários; E2E aparecem como ignorados):
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-A suíte contém 18 testes: fechamento do navegador, termos com espaços e acentos, entradas inválidas, URL incorreta, campo desabilitado, ausência de vídeos, títulos vazios/ocultos, carregamento tardio e configuração headless. Usa DOM simulado e esperas do Selenium; não comprova o funcionamento do YouTube real. Consulte o [relatório de execução](docs/RELATORIO-TESTES.md).
+Testes reais no PowerShell:
 
-## Arquitetura POM
-
-- `pages/youtube_page.py`: `YouTubePage` concentra campo e ação de busca; `ResultadosPage` expõe termo e títulos dos resultados.
-- `core/browser.py`: cria, configura e encerra a sessão Chrome.
-- `scripts/pesquisa_youtube.py`: valida entradas e coordena o fluxo.
-- `tests/`: mantém cenários e asserções, usando DOM simulado.
-
-Os Page Objects não contêm asserções de teste. Suas esperas sincronizam o carregamento dos elementos e da página de resultados.
-
-Execução recomendada na raiz do projeto:
-
-```bash
-python -m scripts.pesquisa_youtube --termo "testes de software" --headless
-python -m unittest discover -s tests -v
+```powershell
+$env:RUN_E2E = "1"
+python -m unittest discover -s tests -p test_register_e2e.py -v
+Remove-Item Env:RUN_E2E
 ```
 
-A execução direta anterior também continua disponível.
+Opcional: `$env:HEADLESS = "1"`. Cada cenário abre sua própria sessão Chrome.
 
-## Estrutura
+## Estrutura POM
 
-- `scripts/pesquisa_youtube.py`: fluxo, validações e interface de linha de comando.
-- `tests/test_execucao.py`: verificações do ciclo de vida do navegador.
-- `tests/test_pesquisa.py`: cenários de busca, espera e configuração.
-- `requirements.txt`: dependências.
+- `pages/register_page.py`: seletores, ações e estado do formulário.
+- `core/browser.py`: criação e encerramento do navegador.
+- `scripts/cadastro.py`: demonstração do fluxo.
+- `tests/test_register_page.py`: 8 testes unitários.
+- `tests/test_register_e2e.py`: 11 cenários reais do formulário.
+- `docs/RELATORIO-TESTES.md`: resultados e limitações.
 
-## Limitações e próximos passos
+As asserções ficam nos testes. A página encapsula ações e leitura de estado.
 
-YouTube é um serviço externo: seletores, consentimento de cookies, bloqueios e disponibilidade podem afetar a execução. O script não contorna consentimento ou CAPTCHA. A execução real precisa ser validada no ambiente de destino.
+## Cenários reais
 
-Próximos passos: cenários com pytest, evidências de falha e integração contínua com um site de teste controlado.
+Nome e sobrenome; nome obrigatório; e-mail válido/inválido; telefone de 9/10 dígitos; exclusividade de gênero; múltiplos hobbies; senhas iguais/diferentes; limpeza pelo botão Refresh.
 
-## Contexto profissional
+As regras verificadas vêm do HTML e do JavaScript do formulário, incluindo telefone com exatamente dez dígitos. Não há teste de cadastro bem-sucedido nem envio de dados ao servidor.
 
-Projeto de estudo de Demétrios Alves da Silva, QA Analyst com experiência em pagamentos, serviços financeiros e seguros.
+## Limitações
 
-[Perfil no GitHub](https://github.com/Demetrios10) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess)
+O site usa dependências HTTP em uma página HTTPS, que podem ser bloqueadas pelo navegador. Recursos dinâmicos, lista de países e backend podem falhar. Os cenários reais devem registrar essas falhas; não são substituídos por simulações aprovadas.
+
+O fluxo anterior de YouTube foi substituído no código ativo. Seu histórico permanece nos commits do GitHub.
+
+## Autor
+
+[Demétrios Alves da Silva](https://github.com/Demetrios10) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess)

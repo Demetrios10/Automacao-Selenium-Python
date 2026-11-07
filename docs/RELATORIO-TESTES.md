@@ -1,37 +1,21 @@
-# Relatório de testes
+# Relatório — Cadastro com POM
 
-Execução em 07/11/2026.
+Data: 07/11/2026.
 
-## Resultado
+## Execução padrão
 
-- Comando: `python -m unittest discover -s tests -v`
-- Total: 18 testes (14 novos e 4 existentes).
-- Resultado: 18 aprovados, 0 falhas, 0 erros.
-- Duração reportada pelo unittest: 0,175 s.
-- Ambiente: Windows, Python 3.14 e Selenium 4.43.0.
+`python -m unittest discover -s tests -v`
 
-## Cobertura dos novos cenários
+19 testes descobertos: 8 unitários aprovados e 11 E2E ignorados por exigirem RUN_E2E=1. Duração: 0,007 s. Os unitários usam simulação e não comprovam o funcionamento do formulário no navegador.
 
-- Pesquisa com envio por Enter e limpeza do campo.
-- Remoção de espaços nas extremidades do termo.
-- Termos com acentos, espaços e símbolos na URL.
-- Termo vazio ou contendo apenas espaços.
-- Tempo limite zero ou negativo.
-- URL com termo diferente e página que não é de resultados.
-- Campo de pesquisa desabilitado.
-- Nenhum vídeo disponível.
-- Exclusão de títulos vazios e vídeos ocultos.
-- Resultados carregados após tentativas iniciais vazias.
-- Falha de navegação.
-- Modo sem janela e tempo limite personalizados.
-- Modo padrão com janela.
+## Tentativa real
+
+Executado `test_nome_e_sobrenome` com RUN_E2E=1 e Chrome visível. Resultado: erro na criação da sessão Chrome (`SessionNotCreatedException`, `DevToolsActivePort file doesn't exist`). O site não chegou a ser aberto. Os outros dez cenários reais não foram executados após esse bloqueio.
+
+## Base dos cenários
+
+HTML consultado diretamente em https://demo.automationtesting.in/Register.html. Seletores confirmados no HTML: placeholders de nome/sobrenome, input de e-mail e telefone, IDs firstpassword/secondpassword/checkbox1–3/Button1 e radiooptions. Telefone exige dez dígitos; confirmação de senha usa validação customizada no evento blur.
 
 ## Limites
 
-Os 18 testes usam navegador/DOM simulados. As condições e esperas da busca são executadas com WebDriverWait real em tempo reduzido. Não foi comprovada a integração com YouTube.
-
-A tentativa de execução com Chrome encontrou falha de acesso ao cache/obtenção do driver e não concluiu a inicialização dentro do limite externo de 25 segundos. Isso é um bloqueio do ambiente, não um teste E2E aprovado.
-
-## Validação após migração para POM
-
-A suíte de 18 testes foi executada novamente após separar Page Objects, sessão do navegador e fluxo. Todos passaram. O comando `python -m scripts.pesquisa_youtube --help` também foi verificado. Não houve nova execução E2E: permanece a limitação de inicialização do ChromeDriver descrita acima.
+Não foi validado cadastro no servidor, nem afirmado sucesso dos cenários E2E. País, idiomas, habilidades, data de nascimento e upload ainda não fazem parte dos cenários automatizados.
