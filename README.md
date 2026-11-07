@@ -36,12 +36,13 @@ A execução imprime até cinco títulos. Se a validação expirar, o processo t
 python -m unittest discover -s tests -v
 ```
 
-Os quatro testes verificam fechamento após sucesso, falha de busca e falha de configuração, além de entradas inválidas. Eles usam simulação e não comprovam o funcionamento do site real.
+A suíte contém 18 testes: fechamento do navegador, termos com espaços e acentos, entradas inválidas, URL incorreta, campo desabilitado, ausência de vídeos, títulos vazios/ocultos, carregamento tardio e configuração headless. Usa DOM simulado e esperas do Selenium; não comprova o funcionamento do YouTube real. Consulte o [relatório de execução](docs/RELATORIO-TESTES.md).
 
 ## Estrutura
 
 - `scripts/pesquisa_youtube.py`: fluxo, validações e interface de linha de comando.
 - `tests/test_execucao.py`: verificações do ciclo de vida do navegador.
+- `tests/test_pesquisa.py`: cenários de busca, espera e configuração.
 - `requirements.txt`: dependências.
 
 ## Limitações e próximos passos
