@@ -7,7 +7,7 @@ Execução em 07/11/2026.
 - Comando: `python -m unittest discover -s tests -v`
 - Total: 18 testes (14 novos e 4 existentes).
 - Resultado: 18 aprovados, 0 falhas, 0 erros.
-- Duração reportada pelo unittest: 0,204 s.
+- Duração reportada pelo unittest: 0,175 s.
 - Ambiente: Windows, Python 3.14 e Selenium 4.43.0.
 
 ## Cobertura dos novos cenários
@@ -31,3 +31,7 @@ Execução em 07/11/2026.
 Os 18 testes usam navegador/DOM simulados. As condições e esperas da busca são executadas com WebDriverWait real em tempo reduzido. Não foi comprovada a integração com YouTube.
 
 A tentativa de execução com Chrome encontrou falha de acesso ao cache/obtenção do driver e não concluiu a inicialização dentro do limite externo de 25 segundos. Isso é um bloqueio do ambiente, não um teste E2E aprovado.
+
+## Validação após migração para POM
+
+A suíte de 18 testes foi executada novamente após separar Page Objects, sessão do navegador e fluxo. Todos passaram. O comando `python -m scripts.pesquisa_youtube --help` também foi verificado. Não houve nova execução E2E: permanece a limitação de inicialização do ChromeDriver descrita acima.

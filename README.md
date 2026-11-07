@@ -1,6 +1,6 @@
 # Automação web com Selenium e Python
 
-**Python · Selenium WebDriver · QA**
+**Python · Selenium WebDriver · Page Object Model · QA**
 
 Fluxo de pesquisa no YouTube com validação da URL e de vídeos visíveis, esperas explícitas e encerramento do navegador mesmo em caso de falha.
 
@@ -37,6 +37,24 @@ python -m unittest discover -s tests -v
 ```
 
 A suíte contém 18 testes: fechamento do navegador, termos com espaços e acentos, entradas inválidas, URL incorreta, campo desabilitado, ausência de vídeos, títulos vazios/ocultos, carregamento tardio e configuração headless. Usa DOM simulado e esperas do Selenium; não comprova o funcionamento do YouTube real. Consulte o [relatório de execução](docs/RELATORIO-TESTES.md).
+
+## Arquitetura POM
+
+- `pages/youtube_page.py`: `YouTubePage` concentra campo e ação de busca; `ResultadosPage` expõe termo e títulos dos resultados.
+- `core/browser.py`: cria, configura e encerra a sessão Chrome.
+- `scripts/pesquisa_youtube.py`: valida entradas e coordena o fluxo.
+- `tests/`: mantém cenários e asserções, usando DOM simulado.
+
+Os Page Objects não contêm asserções de teste. Suas esperas sincronizam o carregamento dos elementos e da página de resultados.
+
+Execução recomendada na raiz do projeto:
+
+```bash
+python -m scripts.pesquisa_youtube --termo "testes de software" --headless
+python -m unittest discover -s tests -v
+```
+
+A execução direta anterior também continua disponível.
 
 ## Estrutura
 

@@ -19,7 +19,7 @@ class TestPesquisa(unittest.TestCase):
         self.campo.is_enabled.return_value = True
         self.browser.find_elements.return_value = [self.video(" Barcelona ")]
         self.wait_patch = patch(
-            "scripts.pesquisa_youtube.WebDriverWait",
+            "pages.youtube_page.WebDriverWait",
             side_effect=lambda browser, timeout: WebDriverWait(
                 browser, timeout, poll_frequency=0.001))
         self.wait_patch.start()
@@ -101,7 +101,7 @@ class TestPesquisa(unittest.TestCase):
 
 
 class TestConfiguracao(unittest.TestCase):
-    @patch("scripts.pesquisa_youtube.webdriver.Chrome")
+    @patch("core.browser.webdriver.Chrome")
     @patch("scripts.pesquisa_youtube.pesquisar", return_value=["Vídeo"])
     def test_headless_e_timeout_personalizados(self, pesquisar_mock, chrome):
         executar("Python", headless=True, timeout=30)
@@ -110,7 +110,7 @@ class TestConfiguracao(unittest.TestCase):
         chrome.return_value.set_page_load_timeout.assert_called_once_with(30)
         pesquisar_mock.assert_called_once_with(chrome.return_value, "Python", 30)
 
-    @patch("scripts.pesquisa_youtube.webdriver.Chrome")
+    @patch("core.browser.webdriver.Chrome")
     @patch("scripts.pesquisa_youtube.pesquisar", return_value=["Vídeo"])
     def test_padrao_abre_janela(self, pesquisar_mock, chrome):
         executar()
