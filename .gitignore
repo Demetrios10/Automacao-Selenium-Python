@@ -6,3 +6,7 @@ venv/
 .pytest_cache/
 .vscode/
 .idea/
+
+# Evidências geradas localmente
+evidencias/execucoes/
+.selenium-cache/

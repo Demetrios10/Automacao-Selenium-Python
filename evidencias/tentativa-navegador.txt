@@ -1,0 +1,69 @@
+test_nome_e_sobrenome (test_register_e2e.TestRegisterE2E.test_nome_e_sobrenome) ... ERROR
+
+======================================================================
+ERROR: test_nome_e_sobrenome (test_register_e2e.TestRegisterE2E.test_nome_e_sobrenome)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<projeto>\tests\test_register_e2e.py", line 15, in setUp
+    self.browser = self.session.__enter__()
+                   ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "<projeto>\core\browser.py", line 13, in sessao_chrome
+    browser = webdriver.Chrome(options=options)
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=self.options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\common\webdriver.py", line 25, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 274, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 370, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 450, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "<usuario>\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	(No symbol) [0x7ff634b19ca5]
+	(No symbol) [0x7ff634a194f0]
+	(No symbol) [0x7ff6348a2763]
+	(No symbol) [0x7ff6348b9b10]
+	(No symbol) [0x7ff6350ec58d]
+	(No symbol) [0x7ff63511c4ee]
+	(No symbol) [0x7ff6348bb389]
+	(No symbol) [0x7ff6348bc6b3]
+	(No symbol) [0x7ff634fe5281]
+	(No symbol) [0x7ff63500c4eb]
+	(No symbol) [0x7ff635000ba0]
+	(No symbol) [0x7ff634c42eee]
+	(No symbol) [0x7ff634a28d35]
+	(No symbol) [0x7ff634a233d4]
+	(No symbol) [0x7ff634a23564]
+	(No symbol) [0x7ff634a0c79c]
+	(No symbol) [0x7fff5f36dda7]
+	(No symbol) [0x7fff609d9c5c]
+
+
+----------------------------------------------------------------------
+Ran 1 test in 7.467s
+
+FAILED (errors=1)

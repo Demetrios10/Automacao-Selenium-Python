@@ -3,14 +3,21 @@ import os
 import unittest
 from core.browser import sessao_chrome
 from pages.register_page import RegisterPage
+from core.evidencias import criar_pasta, registrar_erro, capturar
 
 
 @unittest.skipUnless(os.getenv("RUN_E2E") == "1", "Requer RUN_E2E=1 e Chrome")
 class TestRegisterE2E(unittest.TestCase):
     def setUp(self):
+        self.pasta_evidencias = criar_pasta(self._testMethodName)
         self.session = sessao_chrome(headless=os.getenv("HEADLESS") == "1")
-        self.browser = self.session.__enter__()
+        try:
+            self.browser = self.session.__enter__()
+        except Exception:
+            registrar_erro(self.pasta_evidencias)
+            raise
         self.addCleanup(self.session.__exit__, None, None, None)
+        self.addCleanup(capturar, self.browser, self.pasta_evidencias)
         self.page = RegisterPage(self.browser).abrir()
 
     def test_nome_e_sobrenome(self):

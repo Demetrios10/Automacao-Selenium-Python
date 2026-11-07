@@ -1,0 +1,13 @@
+test_campo_desconhecido (test_register_page.TestRegisterPage.test_campo_desconhecido) ... ok
+test_dados_invalidos_nao_preenchem_parcialmente (test_register_page.TestRegisterPage.test_dados_invalidos_nao_preenchem_parcialmente) ... ok
+test_desmarca_hobby_marcado (test_register_page.TestRegisterPage.test_desmarca_hobby_marcado) ... ok
+test_genero_desconhecido (test_register_page.TestRegisterPage.test_genero_desconhecido) ... ok
+test_hobby_desconhecido (test_register_page.TestRegisterPage.test_hobby_desconhecido) ... ok
+test_marca_hobby_desmarcado (test_register_page.TestRegisterPage.test_marca_hobby_desmarcado) ... ok
+test_nao_clica_em_hobby_ja_desmarcado (test_register_page.TestRegisterPage.test_nao_clica_em_hobby_ja_desmarcado) ... ok
+test_nao_desmarca_hobby_ja_marcado (test_register_page.TestRegisterPage.test_nao_desmarca_hobby_ja_marcado) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK

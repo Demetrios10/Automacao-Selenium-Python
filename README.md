@@ -65,3 +65,7 @@ O fluxo anterior de YouTube foi substituído no código ativo. Seu histórico pe
 ## Autor
 
 [Demétrios Alves da Silva](https://github.com/Demetrios10) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess)
+
+## Evidências
+
+Consulte a pasta [evidencias](evidencias/README.md). Cada cenário real cria sua própria pasta com captura final e identificação da página, quando o Chrome abre. Falhas de inicialização geram registro de erro sem imagem. Os registros da execução desta entrega estão na mesma pasta.
