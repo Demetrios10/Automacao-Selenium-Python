@@ -1,23 +1,12 @@
 # Automação web com Selenium e Python
 
-**Python · Selenium WebDriver · Automação web**
+**Python · Selenium WebDriver · QA**
 
-Projeto de estudo que demonstra um fluxo de pesquisa no YouTube: abrir o Chrome, acessar o site, buscar por `barcelona` e encerrar o navegador.
-
-[Ver o script](scripts/pesquisa_youtube.py) · [Como executar](#preparação) · [Perfil do autor](https://github.com/Demetrios10)
-
-## Estrutura
-
-```text
-scripts/
-└── pesquisa_youtube.py
-requirements.txt
-README.md
-```
+Fluxo de pesquisa no YouTube com validação da URL e de vídeos visíveis, esperas explícitas e encerramento do navegador mesmo em caso de falha.
 
 ## Preparação
 
-Tenha Python 3, Google Chrome e conexão com a internet disponíveis.
+Requisitos: Python 3, Google Chrome e internet. O Selenium pode baixar o driver na primeira execução.
 
 ```bash
 git clone https://github.com/Demetrios10/Automacao-Selenium-Python.git
@@ -25,42 +14,44 @@ cd Automacao-Selenium-Python
 python -m venv .venv
 ```
 
-Ative o ambiente no Windows (PowerShell):
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-No Linux ou macOS:
-
-```bash
-source .venv/bin/activate
-```
-
-Instale a dependência e execute:
+Ative o ambiente no PowerShell: `.\.venv\Scripts\Activate.ps1`. No Linux/macOS: `source .venv/bin/activate`.
 
 ```bash
 python -m pip install -r requirements.txt
 python scripts/pesquisa_youtube.py
+python scripts/pesquisa_youtube.py --termo "testes de software" --headless --timeout 30
 ```
 
-O Selenium pode precisar baixar o driver compatível com o Chrome na primeira execução.
+## O que é validado
 
-## Funcionamento e limites
+1. O campo de pesquisa está disponível para interação.
+2. A URL de resultados contém exatamente o termo enviado.
+3. Pelo menos um título de vídeo está visível.
 
-O fluxo está implementado em `scripts/pesquisa_youtube.py`. É um script demonstrativo, sem asserções automatizadas. Ele utiliza seletores XPath e pausas fixas; mudanças no YouTube ou telas de consentimento podem impedir a execução.
+A execução imprime até cinco títulos. Se a validação expirar, o processo termina com erro e encerra o navegador. Não é verificada a relevância semântica dos vídeos.
 
-## Próximas melhorias
+## Testes locais sem navegador
 
-- Usar esperas explícitas
-- Adicionar validação dos resultados
-- Garantir o encerramento do navegador em caso de erro
-- Evoluir para testes com pytest
+```bash
+python -m unittest discover -s tests -v
+```
+
+Os quatro testes verificam fechamento após sucesso, falha de busca e falha de configuração, além de entradas inválidas. Eles usam simulação e não comprovam o funcionamento do site real.
+
+## Estrutura
+
+- `scripts/pesquisa_youtube.py`: fluxo, validações e interface de linha de comando.
+- `tests/test_execucao.py`: verificações do ciclo de vida do navegador.
+- `requirements.txt`: dependências.
+
+## Limitações e próximos passos
+
+YouTube é um serviço externo: seletores, consentimento de cookies, bloqueios e disponibilidade podem afetar a execução. O script não contorna consentimento ou CAPTCHA. A execução real precisa ser validada no ambiente de destino.
+
+Próximos passos: cenários com pytest, evidências de falha e integração contínua com um site de teste controlado.
 
 ## Contexto profissional
 
-Este projeto registra meus estudos em automação web como Analista de Testes (QA). Complementa minha experiência em testes manuais, APIs e validação de regras de negócio nos setores de pagamentos, serviços financeiros e seguros.
+Projeto de estudo de Demétrios Alves da Silva, QA Analyst com experiência em pagamentos, serviços financeiros e seguros.
 
-## Autor
-
-[Demétrios Alves Da Silva](https://github.com/Demetrios10)
+[Perfil no GitHub](https://github.com/Demetrios10) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess)
