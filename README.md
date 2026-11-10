@@ -1,5 +1,7 @@
 # Automação web com Selenium e Python
 
+[Estudo de caso](docs/PORTFOLIO.md) · [Portfólio do autor](https://github.com/Demetrios10/Demetrios10/blob/main/PORTFOLIO.md)
+
 **QA · Selenium WebDriver · Page Object Model · unittest**
 
 Projeto de estudo para preencher e validar o [formulário de cadastro do Automation Testing](https://demo.automationtesting.in/Register.html), com dados fictícios e sem enviar o cadastro ao servidor.
