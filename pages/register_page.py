@@ -1,4 +1,5 @@
 """Page Object do formulário Automation Demo Site."""
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -54,7 +55,8 @@ class RegisterPage:
         if nome not in self.GENEROS:
             raise ValueError("Gênero desconhecido.")
         return self.browser.find_element(
-            By.CSS_SELECTOR, f"input[name='radiooptions'][value='{self.GENEROS[nome]}']")
+            By.CSS_SELECTOR, f"input[name='radiooptions'][value='{self.GENEROS[nome]}']"
+        )
 
     def selecionar_genero(self, nome):
         self.genero(nome).click()

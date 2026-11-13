@@ -9,3 +9,11 @@ Quando o Chrome abre, são salvos `tela-final.png` e `pagina.txt`. Se a iniciali
 A captura mostra o estado final e não comprova aprovação por si só. O resultado vem do relatório do executor. Não há gravação de vídeo ou captura de cada ação intermediária.
 
 As execuções locais geradas em `execucoes/` são ignoradas pelo Git. Os registros desta entrega estão versionados aqui. Não existem evidências recuperáveis das execuções antigas além dos relatórios já documentados.
+
+## Resultado por cenário
+
+A classe EvidenceTestCase registra resultado.json para todos os cenários unittest, incluindo testes unitários e testes reais ignorados. O E2E também captura o estado final quando o navegador abre.
+
+## Revisão em 12/11/2026
+
+A pasta [revisao-2026-11-12](revisao-2026-11-12) contém uma evidência por cenário da rodada de verificação desta revisão. Resultados aprovados, ignorados e falhas são distintos. Somente cenários com navegador disponível têm captura. As próximas execuções continuam em execucoes/.

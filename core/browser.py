@@ -1,4 +1,5 @@
 """Gerenciamento do navegador, independente dos Page Objects."""
+
 from contextlib import contextmanager
 
 from selenium import webdriver

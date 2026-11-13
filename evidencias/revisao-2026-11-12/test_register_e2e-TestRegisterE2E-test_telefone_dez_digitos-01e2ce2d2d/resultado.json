@@ -1,0 +1,7 @@
+{
+  "cenario": "test_register_e2e.TestRegisterE2E.test_telefone_dez_digitos",
+  "resultado": "skipped",
+  "inicio_utc": "2026-11-12T23:52:30.026519+00:00",
+  "fim_utc": "2026-11-12T23:52:30.026784+00:00",
+  "captura": "Não aplicável ou cenário sem navegador disponível."
+}

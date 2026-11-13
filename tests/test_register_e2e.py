@@ -1,15 +1,17 @@
 """Cenários reais: habilite RUN_E2E=1. Uma sessão isolada por teste."""
+
 import os
 import unittest
+
 from core.browser import sessao_chrome
+from core.evidencias import capturar, registrar_erro
+from core.test_case import EvidenceTestCase
 from pages.register_page import RegisterPage
-from core.evidencias import criar_pasta, registrar_erro, capturar
 
 
 @unittest.skipUnless(os.getenv("RUN_E2E") == "1", "Requer RUN_E2E=1 e Chrome")
-class TestRegisterE2E(unittest.TestCase):
+class TestRegisterE2E(EvidenceTestCase):
     def setUp(self):
-        self.pasta_evidencias = criar_pasta(self._testMethodName)
         self.session = sessao_chrome(headless=os.getenv("HEADLESS") == "1")
         try:
             self.browser = self.session.__enter__()

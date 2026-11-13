@@ -1,7 +1,8 @@
 """Evidências por execução, sem dados reais de cadastro."""
+
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
-import traceback
 
 
 def criar_pasta(nome):
@@ -22,7 +23,7 @@ def capturar(browser, pasta):
         if not browser.save_screenshot(str(pasta / "tela-final.png")):
             raise RuntimeError("O navegador não gravou a captura.")
         (pasta / "pagina.txt").write_text(
-            f"URL: {browser.current_url}\nTítulo: {browser.title}\n",
-            encoding="utf-8")
+            f"URL: {browser.current_url}\nTítulo: {browser.title}\n", encoding="utf-8"
+        )
     except Exception:
         registrar_erro(pasta)

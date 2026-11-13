@@ -1,13 +1,15 @@
 """Testes unitários do contrato do Page Object, sem navegador real."""
-import unittest
+
 from unittest.mock import Mock
+
+from core.test_case import EvidenceTestCase
 from pages.register_page import RegisterPage
 
 
-class TestRegisterPage(unittest.TestCase):
+class TestRegisterPage(EvidenceTestCase):
     def setUp(self):
         self.browser = Mock()
-        self.page = RegisterPage(self.browser, timeout=.01)
+        self.page = RegisterPage(self.browser, timeout=0.01)
 
     def test_campo_desconhecido(self):
         with self.assertRaises(ValueError):

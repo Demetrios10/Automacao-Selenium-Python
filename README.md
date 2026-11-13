@@ -104,3 +104,7 @@ A próxima etapa é validar os cenários em um ambiente com Chrome funcional, re
 **Autor:** [Demétrios Alves da Silva](https://github.com/Demetrios10) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess) · [Fundamentos de Python](https://github.com/Demetrios10/Fundamentos-Python)
 
 Documentação revisada em 09/11/2026.
+
+## Padrões do projeto
+
+Veja [estrutura, responsabilidades e evidências](docs/PADROES-QA.md).
