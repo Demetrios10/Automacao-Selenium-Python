@@ -24,7 +24,7 @@ As esperas são explícitas. Cada cenário E2E usa uma sessão própria; o encer
 
 ## Evidência e limites
 
-O [relatório de 07/11/2026](RELATORIO-TESTES.md) registra oito unitários aprovados. Onze cenários E2E estão definidos: nomes, e-mail, telefone, gênero, hobbies, senhas e limpeza do formulário.
+A [revisão de 16/11/2026](../evidencias/REVISAO-2026-11-16.md) registra 12 testes sem navegador aprovados: oito do Page Object e quatro do coletor. A tentativa dos 11 E2E apresentou erros de inicialização do Chrome. Onze cenários E2E estão definidos: nomes, e-mail, telefone, gênero, hobbies, senhas e limpeza do formulário.
 
 A tentativa real registrada falhou ao inicializar o Chrome; os cenários E2E permanecem sem validação bem-sucedida. A execução padrão ignora esses casos até habilitar `RUN_E2E=1`. Aprovação dos unitários com mocks não comprova funcionamento no navegador.
 
@@ -34,4 +34,4 @@ O site externo contém recursos HTTP em uma página HTTPS e pode sofrer bloqueio
 
 Executar os 11 casos com Chrome funcional, registrar ambiente e resultados e investigar os recursos externos antes de preparar uma execução contínua.
 
-Revisão: 09/11/2026.
+Revisão: 16/11/2026.

@@ -66,14 +66,14 @@ Opcional: defina `$env:HEADLESS = "1"` antes da execução e remova a variável 
 
 ## Estado de validação
 
-| Camada | Situação registrada em 07/11/2026 |
+| Camada | Situação verificada em 16/11/2026 |
 |---|---|
-| Unitários | Oito aprovados |
+| Sem navegador | 12 aprovados: oito testes do Page Object e quatro do coletor |
 | E2E na suíte padrão | 11 ignorados por exigirem `RUN_E2E=1` |
-| Tentativa real | Falha ao iniciar o Chrome; a página não chegou a ser aberta |
+| Tentativa real | Os 11 cenários apresentaram erro ao iniciar o Chrome; a página não foi aberta |
 | Cadastro no servidor | Fora do escopo; nenhum envio é realizado |
 
-Veja o [relatório completo](docs/RELATORIO-TESTES.md). Essa é a evidência histórica disponível, não uma afirmação de execução bem-sucedida dos E2E nesta revisão documental.
+Veja a [revisão atual](evidencias/REVISAO-2026-11-16.md) e o [relatório histórico](docs/RELATORIO-TESTES.md). Os erros de inicialização não são aprovação E2E.
 
 ## Cenários definidos
 
@@ -99,12 +99,16 @@ As asserções ficam nos testes; o Page Object encapsula a página. O histórico
 
 O site utiliza recursos HTTP dentro de uma página HTTPS, sujeitos a bloqueio pelo navegador. Recursos dinâmicos, listas e backend externos também podem falhar. País, idiomas, habilidades, nascimento e upload ainda não fazem parte dos cenários automatizados.
 
-A próxima etapa é validar os cenários em um ambiente com Chrome funcional, registrar os resultados e avaliar uma execução contínua reproduzível.
+O GitHub Actions executa a suíte sem navegador em pushes e pull requests. Os 11 E2E ficam em um job manual opcional, habilitado por `run_e2e`; exigem Chrome funcional e acesso ao site.
 
 **Autor:** [Demétrios Alves da Silva](https://github.com/Demetrios10) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess) · [Fundamentos de Python](https://github.com/Demetrios10/Fundamentos-Python)
 
-Documentação revisada em 09/11/2026.
+Documentação revisada em 16/11/2026.
 
 ## Padrões do projeto
 
 Veja [estrutura, responsabilidades e evidências](docs/PADROES-QA.md).
+
+## Revisão e manutenção
+
+[Revisão de 16/11/2026](evidencias/REVISAO-2026-11-16.md): resultados, mudanças e pendências. Os resultados históricos são preservados; o estado de cada nova execução pode ser consultado na aba **Actions**.
