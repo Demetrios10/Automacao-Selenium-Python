@@ -39,6 +39,17 @@ class TestRegisterPage(EvidenceTestCase):
         self.page.definir_hobby("filmes")
         campo.click.assert_called_once()
 
+    def test_rola_ate_hobby_antes_de_clicar(self):
+        campo = self.browser.find_element.return_value
+        campo.is_selected.return_value = False
+
+        self.page.definir_hobby("filmes")
+
+        self.browser.execute_script.assert_called_once()
+        self.assertIn("scrollIntoView", self.browser.execute_script.call_args.args[0])
+        self.assertIs(self.browser.execute_script.call_args.args[1], campo)
+        campo.click.assert_called_once()
+
     def test_nao_desmarca_hobby_ja_marcado(self):
         campo = self.browser.find_element.return_value
         campo.is_selected.return_value = True
