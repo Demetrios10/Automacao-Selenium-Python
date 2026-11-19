@@ -20,6 +20,11 @@ class TestRegisterPage(EvidenceTestCase):
             self.page.preencher(nome="Teste", inexistente="x")
         self.browser.find_element.assert_not_called()
 
+    def test_valor_none_nao_preenche_formulario_parcialmente(self):
+        with self.assertRaisesRegex(ValueError, "Campos com valor None"):
+            self.page.preencher(nome="Teste", email=None)
+        self.browser.find_element.assert_not_called()
+
     def test_genero_desconhecido(self):
         with self.assertRaises(ValueError):
             self.page.selecionar_genero("inexistente")
