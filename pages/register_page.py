@@ -76,6 +76,11 @@ class RegisterPage:
     def definir_hobby(self, nome, marcado=True):
         campo = self.hobby(nome)
         if campo.is_selected() != marcado:
+            # Posiciona o controle fora de sobreposições flutuantes quando possível.
+            self.browser.execute_script(
+                "arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});",
+                campo,
+            )
             campo.click()
         return self
 
