@@ -38,6 +38,12 @@ class RegisterPage:
         desconhecidos = set(dados) - self.CAMPOS.keys()
         if desconhecidos:
             raise ValueError(f"Campos desconhecidos: {sorted(desconhecidos)}")
+
+        # Valida todo o payload antes de modificar o formulário.
+        campos_sem_valor = sorted(nome for nome, valor in dados.items() if valor is None)
+        if campos_sem_valor:
+            raise ValueError(f"Campos com valor None: {campos_sem_valor}")
+
         for nome, valor in dados.items():
             campo = self.campo(nome)
             campo.clear()
