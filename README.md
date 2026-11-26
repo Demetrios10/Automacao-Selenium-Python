@@ -1,6 +1,6 @@
 # Automação web com Selenium e Python
 
-[Estudo de caso](docs/PORTFOLIO.md) · [Portfólio do autor](https://github.com/Demetrios10/Demetrios10/blob/main/PORTFOLIO.md)
+[Estudo de caso](docs/PORTFOLIO.md)
 
 **QA · Selenium WebDriver · Page Object Model · unittest**
 
@@ -101,14 +101,12 @@ O site utiliza recursos HTTP dentro de uma página HTTPS, sujeitos a bloqueio pe
 
 O GitHub Actions executa a suíte sem navegador em pushes e pull requests. Os 11 E2E ficam em um job manual opcional, habilitado por `run_e2e`; exigem Chrome funcional e acesso ao site.
 
-**Autor:** [Demétrios Alves da Silva](https://github.com/Demetrios10) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess) · [Fundamentos de Python](https://github.com/Demetrios10/Fundamentos-Python)
-
-Documentação revisada em 16/11/2026.
-
 ## Padrões do projeto
 
 Veja [estrutura, responsabilidades e evidências](docs/PADROES-QA.md).
 
-## Revisão e manutenção
+## Revisão e autoria
 
-[Revisão de 16/11/2026](evidencias/REVISAO-2026-11-16.md): resultados, mudanças e pendências. Os resultados históricos são preservados; o estado de cada nova execução pode ser consultado na aba **Actions**.
+Última revisão registrada em [16/11/2026](evidencias/REVISAO-2026-11-16.md). O resultado de cada nova execução fica na aba **Actions**.
+
+**Demétrios Alves da Silva** · QA Analyst · [Portfólio](https://github.com/Demetrios10/Demetrios10/blob/main/PORTFOLIO.md) · [LinkedIn](https://www.linkedin.com/in/demetriosalvess)
